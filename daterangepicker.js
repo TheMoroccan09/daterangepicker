@@ -1,5 +1,5 @@
 /**
-* @version: 2.1.30
+* @version: 2.1.31
 * @author: Dan Grossman http://www.dangrossman.info/
 * @copyright: Copyright (c) 2012-2017 Dan Grossman. All rights reserved.
 * @license: Licensed under the MIT license. See http://www.opensource.org/licenses/mit-license.php
@@ -1519,6 +1519,8 @@
 
                 if (isRight) {
                     this.container.find('input[name="daterangepicker_start"]').val(this.startDate.format(this.locale.format));
+                    this.element.trigger('dateEndChanged.daterangepicker', this);
+                    this.hide();
                 } else {
                     this.container.find('input[name="daterangepicker_end"]').val(this.endDate.format(this.locale.format));
                 }
