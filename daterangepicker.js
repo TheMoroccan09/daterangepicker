@@ -1519,8 +1519,10 @@
 
                 if (isRight) {
                     this.container.find('input[name="daterangepicker_start"]').val(this.startDate.format(this.locale.format));
-                    this.element.trigger('dateEndChanged.daterangepicker', this);
-                    this.hide();
+                    if (e.keyCode == 13) {
+                        this.element.trigger('dateEndChanged.daterangepicker', this);
+                        this.hide();
+                    }
                 } else {
                     this.container.find('input[name="daterangepicker_end"]').val(this.endDate.format(this.locale.format));
                 }
